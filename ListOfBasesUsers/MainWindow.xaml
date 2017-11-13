@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListOfBasesUsers"
         mc:Ignorable="d"
-        Title="Кеш информационных баз (ibases.v8i)" Height="400" Width="800"
+        Title="Кеш информационных баз" Height="400" Width="800"
         Loaded="WindowMain_Loaded"
         >
     <Grid>
