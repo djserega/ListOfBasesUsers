@@ -126,7 +126,8 @@ namespace ListOfBasesUsers
 
                             rowBase = new RowBase()
                             {
-                                Name = name
+                                Name = name,
+                                DateCreate = DateTime.MaxValue
                             };
 
                             list.Add(rowBase);
@@ -224,12 +225,24 @@ namespace ListOfBasesUsers
                             rowBase = new RowBase()
                             {
                                 Name = _nameRowIsNotList,
-                                ID = nameDir
+                                ID = nameDir,
+                                DateCreate = DateTime.MaxValue
                             };
                             listCache.Add(rowBase);
                         }
 
-                        ulong sizeByte = new DirFile(dir.FullName).GetDirSize();
+                        DirFile dirFile = new DirFile(dir.FullName);
+
+                        ulong sizeByte = dirFile.GetDirSize();
+                        Tuple<DateTime, DateTime> dateCreateEdit = dirFile.GetDateCreateEdited();
+
+                        rowBase.DateCreate = dirFile.CompareDatePlus(rowBase.DateCreate, dateCreateEdit.Item1);
+                        rowBase.DateEdit = dirFile.CompareDateMinus(rowBase.DateEdit, dateCreateEdit.Item2);
+                        //if (rowBase.DateCreate.CompareTo(dateCreateEdit.Item1) == 1)
+                        //    rowBase.DateCreate = dateCreateEdit.Item1;
+                        //if (rowBase.DateEdit.CompareTo(dateCreateEdit.Item2) == -1)
+                        //    rowBase.DateEdit = dateCreateEdit.Item2;
+
                         string size = new DirFile().GetSizeFormat(sizeByte);
 
                         if (typeCache == TypeCache.Local)

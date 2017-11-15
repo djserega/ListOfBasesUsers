@@ -12,17 +12,17 @@ namespace ListOfBasesUsers
         public string SortMemberPath { get; }
         public ListSortDirection? SortDirection { get; }
 
-        public PropertiesColumnsAttribute(string headerName, bool visibleColumn = true, string sortMemberPath = "", string sortDirection = "")
+        public PropertiesColumnsAttribute(string headerName, bool visibleColumn = true, string sortMemberPath = "", SortDirection sortDirection = ListOfBasesUsers.SortDirection.none)
         {
             HeaderName = headerName;
             VisibleColumn = visibleColumn;
             SortMemberPath = sortMemberPath;
             switch (sortDirection)
             {
-                case "asc":
+                case ListOfBasesUsers.SortDirection.asc:
                     SortDirection = ListSortDirection.Ascending;
                     break;
-                case "dsc":
+                case ListOfBasesUsers.SortDirection.dsc:
                     SortDirection = ListSortDirection.Descending;
                     break;
                 default:

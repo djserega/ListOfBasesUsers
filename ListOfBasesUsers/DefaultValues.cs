@@ -8,6 +8,8 @@ namespace ListOfBasesUsers
 
         #region internal properties
 
+        internal static string defaultCulture = "ru-UA"; // uk-UA, ru-RU
+
         internal static string pathAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         internal static string pathDataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         internal static string pathUsers = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
