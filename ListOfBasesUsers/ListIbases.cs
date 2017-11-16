@@ -236,8 +236,13 @@ namespace ListOfBasesUsers
                         ulong sizeByte = dirFile.GetDirSize();
                         Tuple<DateTime, DateTime> dateCreateEdit = dirFile.GetDateCreateEdited();
 
+<<<<<<< HEAD
                         rowBase.DateCreate = dirFile.CompareDateCreate(rowBase.DateCreate, dateCreateEdit.Item1);
                         rowBase.DateEdit = dirFile.CompareDateEdit(rowBase.DateEdit, dateCreateEdit.Item2);
+=======
+                        rowBase.DateCreate = dirFile.CompareDatePlus(rowBase.DateCreate, dateCreateEdit.Item1);
+                        rowBase.DateEdit = dirFile.CompareDateMinus(rowBase.DateEdit, dateCreateEdit.Item2);
+>>>>>>> b56eda3fd570568cac4f49b3107f9c9947dcaf38
                         //if (rowBase.DateCreate.CompareTo(dateCreateEdit.Item1) == 1)
                         //    rowBase.DateCreate = dateCreateEdit.Item1;
                         //if (rowBase.DateEdit.CompareTo(dateCreateEdit.Item2) == -1)
