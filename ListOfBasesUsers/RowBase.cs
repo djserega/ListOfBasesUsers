@@ -13,7 +13,7 @@ namespace ListOfBasesUsers
         public string PathCacheLocal { get; set; }
         [PropertiesColumns("Каталог кеша (AppData)", false)]
         public string PathCacheAppData{ get; set; }
-        [PropertiesColumns("Размер (B)", sortDirection: "dsc")]
+        [PropertiesColumns("Размер (B)", sortDirection: SortDirection.dsc)]
         public ulong SizeByte { get; set; }
         [PropertiesColumns("Размер (Local)", sortMemberPath: "SizeByte")]
         public string SizeLocal { get; set; }
@@ -29,6 +29,10 @@ namespace ListOfBasesUsers
         public string App { get; set; }
         [PropertiesColumns("Версия")]
         public string Version { get; set; }
+        [PropertiesColumns("Дата создания")]
+        public DateTime DateCreate { get; set; }
+        [PropertiesColumns("Дата изменения")]
+        public DateTime DateEdit { get; set; }
 
         #endregion
 

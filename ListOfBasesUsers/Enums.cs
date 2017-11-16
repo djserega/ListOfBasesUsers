@@ -10,4 +10,6 @@ namespace ListOfBasesUsers
 
     internal enum FilteringRows { none, isNotList }
 
+    public enum SortDirection { asc, dsc, none }
+
 }

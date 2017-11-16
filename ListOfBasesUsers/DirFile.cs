@@ -58,6 +58,8 @@ namespace ListOfBasesUsers
 
         internal ulong GetDirSize() => CalculateSize(Path);
 
+        internal Tuple<DateTime, DateTime> GetDateCreateEdited() => DateCreateEdited(Path);
+
         internal string GetSizeFormat(ulong DirSize)
         {
 
@@ -114,6 +116,21 @@ namespace ListOfBasesUsers
                 DeleteDir(item.PathCacheLocal);
                 DeleteDir(item.PathCacheAppData);
             }
+        }
+
+        internal DateTime CompareDateCreate(DateTime date1, DateTime date2)
+        {
+            if (date1.CompareTo(date2) == 1)
+                date1 = date2;
+
+            return date1;
+        }
+
+        internal DateTime CompareDateEdit(DateTime date1, DateTime date2)
+        {
+            if (date1.CompareTo(date2) == -1)
+                date1 = date2;
+            return date1;
         }
 
         #endregion
@@ -174,6 +191,28 @@ namespace ListOfBasesUsers
                 size += CalculateSize(dir);
 
             return size;
+        }
+
+        private Tuple<DateTime, DateTime> DateCreateEdited(string path)
+        {
+
+            DateTime dateCreate = DateTime.MaxValue;
+            DateTime dateEdit = DateTime.MinValue;
+
+            foreach (string files in Directory.GetFiles(path, "*", SearchOption.AllDirectories))
+            {
+                FileInfo fileInfo = new FileInfo(files);
+                dateCreate = CompareDateCreate(dateCreate, fileInfo.CreationTime);
+                dateEdit = CompareDateEdit(dateEdit, fileInfo.LastWriteTime);
+                //if (dateCreate.CompareTo(fileInfo.CreationTime) == 1)
+                //    dateCreate = fileInfo.CreationTime;
+                //if (dateEdit.CompareTo(fileInfo.LastWriteTime) == -1)
+                //    dateEdit = fileInfo.LastWriteTime;
+            }
+
+
+            return new Tuple<DateTime, DateTime>(dateCreate, dateEdit);
+
         }
 
         #endregion
