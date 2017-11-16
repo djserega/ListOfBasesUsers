@@ -18,9 +18,17 @@ namespace ListOfBasesUsers
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(DefaultValues.defaultCulture); ;
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(DefaultValues.defaultCulture); ;
+            try
+            {
+                CultureInfo culture = new CultureApp().GetCulture();
+                Thread.CurrentThread.CurrentCulture = culture;
+                Thread.CurrentThread.CurrentUICulture = culture;
 
+            }
+            catch (Exception ex)
+            {
+                Dialog.ShowMessage(ex.Message);
+            }
             FrameworkElement.LanguageProperty.OverrideMetadata(
               typeof(FrameworkElement),
               new FrameworkPropertyMetadata(

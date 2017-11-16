@@ -62,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="Access.cs" />
     <Compile Include="Attributes.cs" />
+    <Compile Include="CultureApp.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ListIbases.cs" />

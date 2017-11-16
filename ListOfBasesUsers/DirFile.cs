@@ -118,11 +118,7 @@ namespace ListOfBasesUsers
             }
         }
 
-<<<<<<< HEAD
-        internal DateTime CompareDateCreate(DateTime date1, DateTime date2)
-=======
         internal DateTime CompareDatePlus(DateTime date1, DateTime date2)
->>>>>>> b56eda3fd570568cac4f49b3107f9c9947dcaf38
         {
             if (date1.CompareTo(date2) == 1)
                 date1 = date2;
@@ -130,11 +126,7 @@ namespace ListOfBasesUsers
             return date1;
         }
 
-<<<<<<< HEAD
-        internal DateTime CompareDateEdit(DateTime date1, DateTime date2)
-=======
         internal DateTime CompareDateMinus(DateTime date1, DateTime date2)
->>>>>>> b56eda3fd570568cac4f49b3107f9c9947dcaf38
         {
             if (date1.CompareTo(date2) == -1)
                 date1 = date2;
@@ -210,17 +202,8 @@ namespace ListOfBasesUsers
             foreach (string files in Directory.GetFiles(path, "*", SearchOption.AllDirectories))
             {
                 FileInfo fileInfo = new FileInfo(files);
-<<<<<<< HEAD
-                dateCreate = CompareDateCreate(dateCreate, fileInfo.CreationTime);
-                dateEdit = CompareDateEdit(dateEdit, fileInfo.LastWriteTime);
-=======
                 dateCreate = CompareDatePlus(dateCreate, fileInfo.CreationTime);
                 dateEdit = CompareDateMinus(dateEdit, fileInfo.LastWriteTime);
->>>>>>> b56eda3fd570568cac4f49b3107f9c9947dcaf38
-                //if (dateCreate.CompareTo(fileInfo.CreationTime) == 1)
-                //    dateCreate = fileInfo.CreationTime;
-                //if (dateEdit.CompareTo(fileInfo.LastWriteTime) == -1)
-                //    dateEdit = fileInfo.LastWriteTime;
             }
 
 
