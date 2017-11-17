@@ -8,20 +8,20 @@ namespace ListOfBasesUsers
 
         #region internal properties
 
-        internal static string defaultCulture = "ru-UA"; // uk-UA, ru-RU
+        internal static readonly string defaultCulture = "ru-UA"; // uk-UA, ru-RU
 
-        internal static string pathAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        internal static string pathDataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        internal static string pathUsers = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        internal static readonly string pathAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        internal static readonly string pathDataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        internal static readonly string pathUsers = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-        internal static string nameIbases = "ibases.v8i";
+        internal static readonly string nameIbases = "ibases.v8i";
 
-        internal static string postfixIbases = @"\1c\1cestart\";
-        internal static string postfixCache = @"\1c\1cv8\";
-        internal static string postfixFileIbases = $"{postfixIbases}{nameIbases}";
+        internal static readonly string postfixIbases = @"\1c\1cestart\";
+        internal static readonly string postfixCache = @"\1c\1cv8\";
+        internal static readonly string postfixFileIbases = $"{postfixIbases}{nameIbases}";
 
-        internal static string nameCurrentUser = Environment.UserName;
-        internal static string nameCurrentDomainUser = Environment.UserDomainName;
+        internal static readonly string nameCurrentUser = Environment.UserName;
+        internal static readonly string nameCurrentDomainUser = Environment.UserDomainName;
 
         #endregion
 
