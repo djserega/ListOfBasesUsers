@@ -60,7 +60,7 @@ namespace ListOfBasesUsers
 
                     _tryGetAccess = true;
 
-                    new Access(pathUserDir).TryGetAccess();
+                    Access.TryGetAccess(pathUserDir);
 
                     Thread.Sleep(1 * 1000);
 
@@ -290,13 +290,14 @@ namespace ListOfBasesUsers
         {
             for (int i = 0; i < list.Count(); i++)
             {
+                if (!(
+                    list[i].Name == _nameRowIsNotList
+                    || !string.IsNullOrWhiteSpace(list[i].Connect)
+                    ))
 
-                if (list[i].Name == _nameRowIsNotList
-                    || !string.IsNullOrWhiteSpace(list[i].Connect))
-                    continue;
-
-                list.RemoveAt(i);
-
+                {
+                    list.RemoveAt(i);
+                }
             }
         }
 

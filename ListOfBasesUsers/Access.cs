@@ -4,32 +4,25 @@ using System.IO;
 
 namespace ListOfBasesUsers
 {
-    internal class Access
+    internal static class Access
     {
 
-        private string _path;
-
-        public Access(string path)
-        {
-            _path = path;
-        }
-
-        internal bool TryGetAccess()
+        internal static bool TryGetAccess(string path)
         {
 
             try
             {
                 //return new DirFile(_path).OpenDirectory(true);
-                new DirFile(_path).OpenDirectory();
+                new DirFile(path).OpenDirectory();
                 return true;
             }
             catch (DirectoryNotFoundException)
             {
-                Dialog.ShowMessage($"Каталог не существует: \n{_path}.");
+                Dialog.ShowMessage($"Каталог не существует: \n{path}.");
             }
             catch (UnauthorizedAccessException)
             {
-                string textMessage = $"Не удалось изменить права доступа к каталогу: \n{_path}.";
+                string textMessage = $"Не удалось изменить права доступа к каталогу: \n{path}.";
                 Dialog.ShowMessage(textMessage);
             }
 
